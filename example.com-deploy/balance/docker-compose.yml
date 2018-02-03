@@ -1,0 +1,30 @@
+version: '3.3'
+
+services:
+
+# ======================================================================
+# Load Balance
+# ======================================================================
+
+  balance:
+    image: nginx:1.12.2-alpine
+    container_name: example-balance
+    working_dir: /etc/nginx
+    restart: always
+    environment:
+      - VIRTUAL_HOST=localhost
+      - VIRTUAL_PORT=80
+      - NGINX_HOST=localhost
+      - NGINX_PORT=80
+      - TERM=xterm
+    volumes:
+      - ./vhosts:/etc/nginx/conf.d/vhosts
+      - ./conf.d/nginx.conf:/etc/nginx/nginx.conf
+      - ./conf.d/example.com.conf:/etc/nginx/conf.d/default.conf
+    ports:
+      - "80:80"
+    networks:
+      - balance_network
+
+networks:
+  balance_network:
