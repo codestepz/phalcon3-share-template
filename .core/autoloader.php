@@ -7,9 +7,9 @@
 $loader = new \Phalcon\Loader();
 
 $loader->registerDirs([
-    sprintf('%s/%s', __DIR__, 'Components'),
-    sprintf('%s/%s', __DIR__, 'Librarys'),
-    sprintf('%s/%s', __DIR__, 'Security')
+    sprintf('%s/%s', CORE_PATH, 'Components'),
+    sprintf('%s/%s', CORE_PATH, 'Librarys'),
+    sprintf('%s/%s', CORE_PATH, 'Security')
 ])->register();
 
 /* =====================================================
