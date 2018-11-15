@@ -10,7 +10,7 @@ $modules = [];
 foreach ($addModule as $recode) {
     $modules[$recode] = [
         'className' => sprintf('%s\\Module', ucfirst($recode)),
-        'path'      => sprintf('%s/Modules/%s/Module.php', APP_PATH, $recode),
+        'path'      => sprintf('%s/modules/%s/Module.php', APP_PATH, $recode),
     ];
 }
 
